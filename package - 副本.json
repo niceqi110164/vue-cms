@@ -1,0 +1,46 @@
+{
+  "name": "vue-cms",//项目名
+  "version": "0.1.0",//版本
+  "private": true,//是否是私人项目
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {//这个代码块描述此 项目依赖 的插件
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {//这个代码块描述的是此项目 运行依赖 插件:注意根上面项目依赖的区分
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "babel-eslint": "^10.0.1",//eslint是一个约束编码者的代码风格工具，这个是babel版本的eslint，如果那里写的不符合eslint的要求，就会报错，练习这个建议用熟练的项目来练习
+    "eslint": "^5.8.0",//这是官方eslint，用于统一代码风格的工具，写的不符合规范就给报错，再次建议，在自己有把握的熟练项目里练习它比较好
+    "eslint-plugin-vue": "^5.0.0-0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [//在不同的前端工具之间共享目标浏览器的库，确定哪些支持哪些版本的浏览器
+    "> 1%",//全球有超1%的人使用的浏览器
+    "last 2 versions",//根据CanIUse.com追踪的最后两个版本的所有浏览器
+    "not ie <= 8"//排除先前查询选择的浏览器    天啦噜 英语不好是硬伤 不知怎么翻译好理解
+  ]
+}
