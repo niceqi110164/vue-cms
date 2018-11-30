@@ -2,7 +2,7 @@
     <div id="life">
         <h2>这是life 组件 ---- {{msg}}</h2>
         <br>
-        <button @click="getMsg()">点击改变数据11111111111</button>
+        <button @click="getMsg()">点击改变数据111111111112222222</button>
     </div>
 </template>
 
