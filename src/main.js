@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+//vue-resource的使用
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 Vue.config.productionTip = false
 
 new Vue({

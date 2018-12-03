@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 import storage from './model/storage.js';
 import Home from './components/Home.vue';
 
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     doAdd(e) {
-      console.log(e);
+      window.console.log(e);
       
       if (e.keyCode == "13") {
         if (this.msg == "") {
@@ -92,8 +92,8 @@ export default {
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: center; */
   color: #2c3e50;
-  margin-top: 60px; */
+  /* margin-top: 60px; */
 }
 </style>

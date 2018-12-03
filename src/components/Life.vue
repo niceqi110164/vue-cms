@@ -7,47 +7,46 @@
 </template>
 
 <script>
-    
     export default {
-        data(){
+        data() {
             return {
-                msg:"这是life组件的数据"
+                msg: "这是life组件的数据"
             }
         },
-        methods:{
-            getMsg(){
-               
+        methods: {
+            getMsg() {
+
                 this.msg = "这是life组件改变后的的数据";
             }
         },
         beforeCreate() {
-            console.log("组件创建之前执行1")
+            window.console.log("组件创建之前执行1")
         },
         created() {
-            console.log("这是组件创建之后执行2")
+            window.console.log("这是组件创建之后执行2")
         },
         beforeMount() {
-            console.log("模板编译之前执行3")
+            window.console.log("模板编译之前执行3")
         },
-        mounted(){
-            console.log("模板编译之后执行4")
+        mounted() {
+            window.console.log("模板编译之后执行4")
         },
         beforeUpdate() {
-            console.log("数据更新之前执行")
+            window.console.log("数据更新之前执行")
         },
         updated() {
-            console.log("数据更新之后执行")
+            window.console.log("数据更新之后执行")
         },
         beforeDestroy() {
-            console.log("实例销毁之前执行")  
+            window.console.log("实例销毁之前执行")
         },
-        destroyed(){
-            console.log("实例销毁之后执行")
+        destroyed() {
+            window.console.log("实例销毁之后执行")
         }
 
     }
-</script>  
+</script>
 
-<style >
+<style>
 
 </style>
