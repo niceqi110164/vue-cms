@@ -2,6 +2,14 @@
     <div id="home">
         <h2 class="home">{{msg}}</h2>
 
+        <hr>
+
+        <ul>
+            <li v-for="(item, index) in list" :key="index">
+                <router-link :to="'pcontent/'+index">{{item}}</router-link>
+            </li>
+        </ul>
+
         <Life v-if="flag"></Life>
 
         <button @click="flag = !flag">点击销毁life组件</button>
@@ -14,7 +22,12 @@
         data(){
             return {
                 msg:"这是home组件",
-                flag:true
+                flag:true,
+                list:[
+                    1111,
+                    2222,
+                    3333
+                ]
             }
         },
         methods:{

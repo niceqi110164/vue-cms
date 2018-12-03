@@ -11,6 +11,8 @@ Vue.use(VueRouter)
 //1 引入组件
 import Home from './components/Home.vue'
 import News from './components/News.vue'
+import Pcontent from './components/Pcontent.vue'
+import Newscontent from './components/Newscontent.vue'
 //2 配置路由
 const routes = [{
     path: '/home',
@@ -19,6 +21,14 @@ const routes = [{
   {
     path: '/news',
     component: News
+  },
+  {
+    path: '/newscontent/:aid',
+    component: Newscontent
+  },
+  {
+    path: '/pcontent/:aid', /*动态路由 */
+    component: Pcontent
   },
   {
     path: '*',  /**重定向路由 */

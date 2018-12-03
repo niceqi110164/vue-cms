@@ -20,28 +20,28 @@
             }
         },
         beforeCreate() {
-            window.console.log("组件创建之前执行1")
+            //window.console.log("组件创建之前执行1")
         },
         created() {
-            window.console.log("这是组件创建之后执行2")
+            //window.console.log("这是组件创建之后执行2")
         },
         beforeMount() {
-            window.console.log("模板编译之前执行3")
+            //window.console.log("模板编译之前执行3")
         },
         mounted() {
-            window.console.log("模板编译之后执行4")
+            //window.console.log("模板编译之后执行4")
         },
         beforeUpdate() {
-            window.console.log("数据更新之前执行")
+            //window.console.log("数据更新之前执行")
         },
         updated() {
-            window.console.log("数据更新之后执行")
+            //window.console.log("数据更新之后执行")
         },
         beforeDestroy() {
-            window.console.log("实例销毁之前执行")
+            //window.console.log("实例销毁之前执行")
         },
         destroyed() {
-            window.console.log("实例销毁之后执行")
+            //window.console.log("实例销毁之后执行")
         }
 
     }
