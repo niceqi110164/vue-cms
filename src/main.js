@@ -19,7 +19,12 @@ const routes = [{
   {
     path: '/news',
     component: News
+  },
+  {
+    path: '*',  /**重定向路由 */
+    redirect:'/news'  /**重定向定向的是路由地址 */
   }
+
 ]
 //3 实例化 VueRouter
 const router = new VueRouter({
