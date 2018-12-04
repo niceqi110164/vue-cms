@@ -44,6 +44,10 @@ let api = "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1
 </script>
 
 <style scoped>
+   ul{
+      padding:0;
+      margin: 0;
+   }
    li{
       list-style:none;
    }

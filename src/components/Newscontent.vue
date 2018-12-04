@@ -2,7 +2,7 @@
    <div class="newscontent">
       <button @click="goBack()">返回</button>
       <h2>{{detailList.title}}</h2>
-      <p v-html="detailList.content"></p>
+      <div v-html="detailList.content"></div>
 
    </div>
 </template>
@@ -23,7 +23,7 @@
          getDetailsData(id) {
             let api = "http://www.phonegap100.com/appapi.php?a=getPortalArticle&aid=" + id;
             Axios.get(api).then((response) => {
-               window.console.log(response.data.result);
+               //window.console.log(response.data.result);
                this.detailList = response.data.result[0];
             }).catch((error) => {
                window.console.log(error)
@@ -50,5 +50,13 @@
    }
 </script>
 
-<style scoped>
+<style >
+.newscontent img{
+      width: 100%;
+      height:100%;
+   }
+
+.newscontent a{
+   width: 100%;
+}
 </style>
