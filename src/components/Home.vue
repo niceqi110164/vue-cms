@@ -35,7 +35,10 @@
         },
         components:{
             Life
-        }
+        },
+        mounted() {
+window.console.log(this.$route.params)
+        },
     }
 </script>
 
