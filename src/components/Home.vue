@@ -3,7 +3,10 @@
         <h2 class="home">{{msg}}</h2>
 
         <hr>
-
+        vuex在vue中的时用 ----{{this.$store.state.count}}
+        <br>
+        <button @click="changeCount()">点击改变vuex当中state中存放的数据</button>
+        <hr>
         <ul>
             <li v-for="(item, index) in list" :key="index">
                 <router-link :to="'pcontent/'+index">{{item}}</router-link>
@@ -17,34 +20,40 @@
 </template>
 
 <script>
+    //引入vuex 
+    import store from '../vuex/store.js'
     import Life from './Life.vue'
     export default {
-        data(){
+        data() {
             return {
-                msg:"这是home组件",
-                flag:true,
-                list:[
+                msg: "这是home组件",
+                flag: true,
+                list: [
                     1111,
                     2222,
                     3333
                 ]
             }
         },
-        methods:{
-
+        store,
+        methods: {
+            changeCount() {
+                this.$store.commit('incCount');
+            }
         },
-        components:{
+        components: {
             Life
         },
         mounted() {
-window.console.log(this.$route.params)
+            //window.console.log(this.$route.params)
+
+            //window.console.log(store)
         },
     }
 </script>
 
 <style scoped>
-    .home{
+    .home {
         background: lightblue;
     }
 </style>
-
