@@ -12,6 +12,8 @@ import UserAdd from '../components/User/UserAdd.vue'
 import UserList from '../components/User/UserList.vue'
 import Pcontent from '../components/Pcontent.vue'
 import Newscontent from '../components/Newscontent.vue'
+//引入登录首页
+import Login from '../views/login/index.vue'
 //2 配置路由
 const routes = [{
       path: '/home',
@@ -21,6 +23,10 @@ const routes = [{
    {
       path: '/news',
       component: News
+   },
+   {
+      path: '/login',
+      component: Login
    },
    {
       path: '/user',

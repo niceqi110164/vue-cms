@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-
+    <router-link to="/login">Login</router-link>
     <router-link to="/home">Home</router-link>
     <router-link to="/news">News</router-link>
     <router-link to="/user">User</router-link>
-    <button @click="goHome()">js跳转到home</button>
+    
     <router-view></router-view>
   </div>
 </template>
