@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import user3 from './modules/user3.js'
 import permission from './modules/permission.js'
 import app from './modules/app.js'
+import errorLog from './modules/errorLog.js'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ let store = new Vuex.Store({
    modules: {
       user3,
       permission,
-      app
+      app,
+      errorLog
    },
 })
 
