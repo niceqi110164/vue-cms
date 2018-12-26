@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 //在Vue中时用vuex 这里和router时用时一样
 import user3 from './modules/user3.js'
 import permission from './modules/permission.js'
+import app from './modules/app.js'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,8 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
    modules: {
       user3,
-      permission
+      permission,
+      app
    },
 })
 

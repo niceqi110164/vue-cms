@@ -48,7 +48,7 @@ const permission = {
       addRouters: []
    },
    mutations: {
-      SET_ROUTERS: (state, routers) => {
+      SET_ROUTERS: (state, routers) => { //添加路由
          state.addRouters = routers;
          state.routers = constantRouterMap.concat(routers);
       }
