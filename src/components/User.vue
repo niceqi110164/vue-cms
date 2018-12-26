@@ -1,20 +1,17 @@
 <template>
   <div class="user">
-    <ul>
+    <h2>这是user.vue页面</h2>
+    <!-- <ul>
       <li>
-        <router-link to="/user/userAdd">添加用户</router-link>
+        <router-link to="/user/UserAdd">添加</router-link>
       </li>
       <li>
-        <router-link to="/user/userList">用户列表</router-link>
+        <router-link to="/user/UserList">列表</router-link>
       </li>
-    </ul>
+    </ul>-->
     <div class="content">
       <router-view></router-view>
     </div>
-
-    <button @click="setCookie()">点击按钮</button>
-    
-    <button @click="getCookie('name')">点击按钮</button>
   </div>
 </template>
 

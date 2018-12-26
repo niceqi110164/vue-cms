@@ -65,7 +65,6 @@
 /** @ 表示 ../ */
 //import { isvalidUsername } from "@/utils/validate";
 import store from "../../vuex/store1.js";
-window.console.log(store);
 export default {
   props: {},
   store,
@@ -154,10 +153,14 @@ export default {
           this.$store
             .dispatch("LoginByUsername", this.loginForm)
             .then(data => {
-              window.console.log("后台返回数据" + data);
-              this.$router.push({
-                path: this.redirect || "/home"
-              });
+              //window.console.log("后台返回数据" + data);
+              if (data.success) {
+                this.$router.push({
+                  path: this.redirect || "/"
+                });
+              } else {
+                return false;
+              }
             })
             .catch(() => {
               this.loading = false;

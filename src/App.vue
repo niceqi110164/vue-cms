@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <router-link to="/login">Login</router-link>
+    <!-- <router-link to="/login">Login</router-link>
     <router-link to="/home">Home</router-link>
     <router-link to="/news">News</router-link>
-    <router-link to="/user">User</router-link>
-    
+    <router-link to="/user">User</router-link>-->
     <router-view></router-view>
   </div>
 </template>
@@ -23,29 +22,21 @@ export default {
     };
   },
   methods: {
-    goHome(){
+    goHome() {
       //编程式导航
       //this.$router.push({path:'/home'});
 
       //当想传递 home/参数的时候 路径要用name
-      this.$router.push({ name: 'home', params: { userId: '123' } });
+      this.$router.push({ name: "home", params: { userId: "123" } });
       // this.$route.params
-
 
       //当想get获取时要传入query  会在路径上显示
       //this.$router.push({path:'/home',query:{'aid':444}});
-      
-
     }
   },
-  components: {
-    
-  },
-  mounted() {
-   
-    
-  }
-}
+  components: {},
+  mounted() {}
+};
 </script>
 
 <style>

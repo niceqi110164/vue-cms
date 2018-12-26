@@ -39,7 +39,6 @@ import Life from "./Life.vue";
 //import { postRequest } from "../model/request.js";
 //import { loginByUsername } from "../api/login.js";
 import server from "../utils/request.js";
-window.console.log(store);
 export default {
   data() {
     return {

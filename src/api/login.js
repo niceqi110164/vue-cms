@@ -22,7 +22,7 @@ export function logout() {
 
 export function getUserInfo(token) {
    return request({
-      url: 'user/info',
+      url: 'doGet',
       method: 'get',
       params: {
          token

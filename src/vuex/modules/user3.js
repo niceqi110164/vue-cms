@@ -52,7 +52,8 @@ const mutations = {
 }
 
 const getters = {
-   token: state => state.token,
+   token: state => state.token, //获取token
+   roles: state => state.roles, //获取roles(角色)
 }
 
 //执行mutations中的方法 可以使用异步
@@ -69,7 +70,7 @@ const actions = {
             Cookies.set('Token', data.token)
             commit('SET_TOKEN', data.token)
             setToken(data.token)
-            window.console.log(data)
+            //window.console.log(data)
             resolve(data)
          }).catch(error => {
             reject(error)
@@ -88,8 +89,9 @@ const actions = {
                reject('error')
             }
             const data = response.data
+            //存在 roles 并且不为空
             if (data.roles && data.roles.length > 0) {
-               commit('SET_ROLES', data.roles)
+               commit('SET_ROLES', data.roles) //把roles放到state中
             } else {
                reject('getInfo: roles must be a non-null array !')
             }
@@ -97,6 +99,7 @@ const actions = {
             commit('SET_NAME', data.name)
             commit('SET_AVATAR', data.avatar)
             commit('SET_INTRODUCTION', data.introduction)
+            resolve(response)
          }).catch((err) => {
             reject(err)
          })

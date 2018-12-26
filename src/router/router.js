@@ -1,65 +1,131 @@
 import Vue from 'vue'
 
-
 //使用vue-router 在使用Vue时注意大小写
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-//1 引入组件
-import Home from '../components/Home.vue'
-import News from '../components/News.vue'
-import User from '../components/User.vue'
-import UserAdd from '../components/User/UserAdd.vue'
-import UserList from '../components/User/UserList.vue'
-import Pcontent from '../components/Pcontent.vue'
-import Newscontent from '../components/Newscontent.vue'
-//引入登录首页
-import Login from '../views/login/index.vue'
-//2 配置路由
-const routes = [{
-      path: '/home',
-      component: Home,
-      name: 'home'
-   },
-   {
-      path: '/news',
-      component: News
-   },
-   {
+
+
+import Layout from '../views/layout/Layout.vue'
+
+export const constantRouterMap = [{
       path: '/login',
-      component: Login
+      component: () => import('../views/login/index.vue'), //引入登录首页
+      hidden: true
    },
    {
-      path: '/user',
-      component: User,
+      path: '/',
+      component: Layout,
+      redirect: '/dashboard',
       children: [{
-            path: 'userList',
-            component: UserList
+            path: 'dashboard',
+            component: () => import('../views/dashboard/index.vue'),
          },
          {
-            path: 'userAdd',
-            component: UserAdd
+            path: 'dashboard/add',
+            component: () => import('../views/child/add.vue')
+         },
+         {
+            path: 'dashboard/list',
+            component: () => import('../views/child/list.vue')
          }
       ]
    },
    {
-      path: '/newscontent/:aid',
-      component: Newscontent
+      path: '/404',
+      component: () => import('../views/errorPage/404'),
+      hidden: true
    },
    {
-      path: '/pcontent/:aid',
-      /*动态路由 */
-      component: Pcontent
+      path: '/401',
+      component: () => import('../views/errorPage/401'),
+      hidden: true
    },
-   // {
-   /**path: '*',重定向路由 */
-   /**redirect:'/news'  重定向定向的是路由地址 */
-   // }
-
 ]
-//3 实例化 VueRouter
-const router = new VueRouter({
-   routes
+
+export default new VueRouter({
+   routes: constantRouterMap
 })
 
-
-export default router;
+//异步挂载的路由
+//动态需要根据权限加载的路由表
+export const asyncRouterMap = [{
+      path: '/home',
+      component: Layout,
+      redirect: '/home/page',
+      alwaysShow: true, // will always show the root menu
+      meta: {
+         title: 'home',
+         icon: 'lock',
+         roles: ['hello', '22'] // you can set roles in root nav
+      },
+      children: [{
+            path: 'page',
+            component: () => import('../views/home/page.vue'),
+            name: 'PagePermission',
+            meta: {
+               title: 'pagePermission',
+               roles: ['hello', '44'] // or you can only set roles in sub nav
+            }
+         },
+         {
+            path: 'directive',
+            component: () => import('../views/home/directive.vue'),
+            name: 'DirectivePermission',
+            meta: {
+               title: 'directivePermission',
+               roles: ['hello', '66f']
+               // if do not set roles, means: this page does not require permission
+            }
+         }
+      ]
+   },
+   {
+      path: '/user',
+      name: 'User',
+      //component: () => import('../components/User.vue'),
+      component: Layout,
+      redirect: '/user/userList',
+      meta: {
+         title: 'user',
+         icon: 'lock',
+         roles: ['he3llo', 'ac'] // you can set roles in root nav
+      },
+      children: [{
+            path: 'userAdd',
+            name: 'userAdd',
+            meta: {
+               roles: ['he3llo', '88']
+            },
+            component: () => import('../components/User/UserAdd.vue')
+         },
+         {
+            path: 'userList',
+            name: 'userList',
+            meta: {
+               roles: ['he3llo', '233232']
+            },
+            component: () => import('../components/User/UserList.vue')
+         },
+      ]
+   },
+   {
+      path: '/documentation',
+      //你可以选择不同的layout组件
+      component: Layout,
+      //这里开始对应的路由都会显示在app-main中 如上图所示
+      redirect: '/documentation/index',
+      meta: {
+         roles: ['vc', 'ac']
+      },
+      children: [{
+         path: 'index',
+         component: () => import('../views/documentation/index.vue'),
+         name: 'documentation'
+      }]
+   },
+   {
+      path: '*',
+      redirect: '/404',
+      hidden: true
+   }
+];
