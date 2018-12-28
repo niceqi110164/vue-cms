@@ -16,7 +16,7 @@ Vue.use(VueResource)
 
 //4挂载到Vue实例上
 
-import store from './vuex/store1.js'
+import store from './store'
 
 import router from './router/router.js'
 
