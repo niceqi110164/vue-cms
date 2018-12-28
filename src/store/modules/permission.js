@@ -1,7 +1,7 @@
 import {
    asyncRouterMap,
    constantRouterMap
-} from '../../router/router.js';
+} from '../../router/index.js';
 /** 
  * permission judge function 许可判断函数
  * @params: roles
