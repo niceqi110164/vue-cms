@@ -3,9 +3,6 @@
     <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div> -->
     <!-- <sidebar class="sidebar-container"></sidebar> -->
     <div class="main-container">
-      <!-- <navbar></navbar>
-      <tags-view></tags-view>
-      <app-main></app-main>-->
       <router-view></router-view>
     </div>
   </div>
@@ -13,7 +10,7 @@
 
 <script type="text/ecmascript-6">
 // import { Navbar, Sidebar, AppMain, TagsView } from "./components";
-import ResizeMixin from "./mixin/ResizeHandler";
+//import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
   data() {
@@ -21,34 +18,10 @@ export default {
       msg: "layout页面的数据"
     };
   },
-  mixins: [ResizeMixin],
-  methods: {
-    handleClickOutside() {
-      this.$store.dispatch("closeSideBar", { withoutAnimation: false });
-    }
-  },
-  components: {
-    // Navbar,
-    // Sidebar,
-    // AppMain,
-    // TagsView
-  },
-  computed: {
-    // sidebar() {
-    //   return this.$store.state.app.sidebar;
-    // },
-    // device() {
-    //   return this.$store.state.app.device;
-    // },
-    // classObj() {
-    //   return {
-    //     hideSidebar: !this.sidebar.opened,
-    //     openSidebar: this.sidebar.opened,
-    //     withoutAnimation: this.sidebar.withoutAnimation,
-    //     mobile: this.device === "mobile"
-    //   };
-    // }
-  }
+  //mixins: [ResizeMixin],
+  methods: {},
+  components: {},
+  computed: {}
 };
 </script>
 

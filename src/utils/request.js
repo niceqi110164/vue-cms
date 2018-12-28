@@ -10,7 +10,7 @@ import {
    apiUrl
 } from '../../config/config.js'
 
-import store from '../vuex/store1.js'
+import store from '../store'
 //创建一个axios 实例
 const service = axios.create({
    baseURL: apiUrl, //api 的 base_url

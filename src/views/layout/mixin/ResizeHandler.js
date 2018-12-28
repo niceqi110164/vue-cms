@@ -1,4 +1,4 @@
-import store from '@/vuex/store1.js';
+import store from '@/store';
 
 const {
   body

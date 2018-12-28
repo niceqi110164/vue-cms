@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
+
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+
+import '@/styles/index.scss' // global css
+
 //设置axios并配置全局使用
 import axios from 'axios'
 import qs from 'qs'

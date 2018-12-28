@@ -64,10 +64,8 @@
 <script type="text/ecmascript-6">
 /** @ 表示 ../ */
 //import { isvalidUsername } from "@/utils/validate";
-import store from "../../vuex/store1.js";
 export default {
   props: {},
-  store,
   data() {
     //对应rules里面的验证方法
     const validateUsername = (rule, value, callback) => {
