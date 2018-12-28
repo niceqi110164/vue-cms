@@ -2,8 +2,8 @@ import Cookies from 'js-cookie'
 
 const app = {
    state: {
-      sidebar: {
-         opened: !+Cookies.get('sidebarStatus'),
+      sidebar: { //Cookies.get('sidebarStatus'),=>false
+         opened: !+Cookies.get('sidebarStatus'), //初始值 true
          withoutAnimation: false
       },
       device: 'desktop'
@@ -28,19 +28,19 @@ const app = {
       }
    },
    actions: {
-      ToggleSideBar: ({
+      toggleSideBar: ({
          commit
       }) => {
          commit('TOGGLE_SIDEBAR')
       },
-      CloseSideBar({
+      closeSideBar({
          commit
       }, {
          withoutAnimation
       }) {
          commit('CLOSE_SIDEBAR', withoutAnimation)
       },
-      ToggleDevice({
+      toggleDevice({
          commit
       }, device) {
          commit('TOGGLE_DEVICE', device)

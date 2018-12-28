@@ -1,8 +1,14 @@
 <template>
-  <div class="app-wrapper">
-    <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div> -->
+  <div :class="classObj" class="app-wrapper">
+    {{this.$store.state.app.device}}
+    <hr>
+    {{this.$store.state.app.sidebar}}
+    <hr>
+    {{classObj}}
+    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
     <!-- <sidebar class="sidebar-container"></sidebar> -->
     <div class="main-container">
+      <Navbar></Navbar>
       <router-view></router-view>
     </div>
   </div>
@@ -10,6 +16,7 @@
 
 <script type="text/ecmascript-6">
 // import { Navbar, Sidebar, AppMain, TagsView } from "./components";
+import Navbar from "./components/Navbar.vue";
 //import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
@@ -20,8 +27,23 @@ export default {
   },
   //mixins: [ResizeMixin],
   methods: {},
-  components: {},
-  computed: {}
+  components: { Navbar },
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar;
+    },
+    device() {
+      return this.$store.state.app.device;
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === "mobile"
+      };
+    }
+  }
 };
 </script>
 

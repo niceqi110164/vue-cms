@@ -20,7 +20,11 @@ Vue.use(VueResource)
 import store from './store'
 import router from './router'
 
+
+import '@/permission'
+
 import './plugins/element.js'
+
 
 Vue.config.productionTip = false
 
