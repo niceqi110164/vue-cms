@@ -16,20 +16,25 @@ export const constantRouterMap = [{
       path: '/',
       component: Layout,
       redirect: '/dashboard',
+      name: 'Dashboard',
+      hidden: true,
       children: [{
-            path: 'dashboard',
-            component: () => import('../views/dashboard/index.vue'),
-         },
-         {
-            path: 'dashboard/add',
-            component: () => import('../views/child/add.vue')
-         },
-         {
-            path: 'dashboard/list',
-            component: () => import('../views/child/list.vue')
-         }
-      ]
+         path: 'dashboard',
+         component: () => import('@/views/dashboard/index')
+      }]
    },
+   // {
+   //    path: '/',
+   //    component: Layout,
+   //    redirect: '/dashboard',
+   //    // name: 'Dashboard',
+   //    hidden: true,
+   //    children: [{
+   //       path: 'dashboard',
+   //       name: 'Dashboard',
+   //       component: () => import('@/views/dashboard/index')
+   //    }]
+   // },
    {
       path: '/404',
       component: () => import('../views/errorPage/404'),

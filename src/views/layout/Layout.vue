@@ -5,6 +5,8 @@
     {{this.$store.state.app.sidebar}}
     <hr>
     {{classObj}}
+    <hr>
+    <!-- {{this.$router}} -->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
     <!-- <sidebar class="sidebar-container"></sidebar> -->
     <div class="main-container">

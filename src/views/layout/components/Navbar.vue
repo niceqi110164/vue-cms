@@ -36,12 +36,12 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
-  background: gray;
+
   .hamburger-container {
     line-height: 58px;
     height: 50px;
     float: left;
-    padding: 1 10px;
+    padding: 0 10px;
   }
   .breadcrumb-container {
     float: left;

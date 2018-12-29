@@ -1,81 +1,69 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
-    <!-- <transition-group name="breadcrumb">
-      <el-breadcrumb-item :to="{ path: '/' }">
+    <transition-group name="breadcrumb">
+      <el-breadcrumb-item v-for="(item,index) in levelList" v-if="item.meta.title" :key="item.path">
         <span
-          v-if="item.redirect==='noredirect'||index==length.length-1"
+          v-if="item.redirect==='noredirect'||index==levelList.length-1"
           class="no-redirect"
-        >{{ generateTitle(item.meta.title) }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{generateTitle(item.meta.title)}}</a>
+        >{{ item.meta.title }}</span>
+        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
       </el-breadcrumb-item>
-    </transition-group>-->
-    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-    <el-breadcrumb-item>
-      <a href="/">活动管理</a>
-    </el-breadcrumb-item>
-    <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-    <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+    </transition-group>
   </el-breadcrumb>
 </template>
 
-<script type="text/ecmascript-6">
-//import { generateTitle } from "@/utils/i18n";
-//import pathToRegexp from "path-to-regexp";
+<script>
+import pathToRegexp from "path-to-regexp";
+
 export default {
-  props: {},
   data() {
     return {
       levelList: null
     };
   },
   watch: {
-    //  $route() {
-    //    this.getBreadcrumb();
-    //  }
+    $route() {
+      this.getBreadcrumb();
+    }
   },
   created() {
-    //this.getBreadcrumb();
+    this.getBreadcrumb();
   },
   methods: {
-    //  generateTitle,
-    //  getBreadcrumb() {
-    //    let matched = this.$route.matched.filters(item => {
-    //      if (item.name) {
-    //        return true;
-    //      }
-    //    });
-    //    const first = matched[0];
-    //    if (
-    //      first &&
-    //      first.name.trim().toLocaleLowerCase() !==
-    //        "Dashboard".toLocaleLowerCase()
-    //    ) {
-    //      matched = [{ path: "/dashboard", meta: { title: "dashboard" } }].concat(
-    //        matched
-    //      );
-    //    }
-    //    this.levelList = matched;
-    //  },
-    //  pathCompile(path) {
-    //    const { params } = this.$route;
-    //    let toPath = pathToRegexp.compile(path);
-    //    return toPath(params);
-    //  },
-    //  handleLink(item) {
-    //    const { redirect, path } = item;
-    //    if (redirect) {
-    //      this.$router.push(redirect);
-    //      return;
-    //    }
-    //    this.$router.push(this.pathCompile(path));
-    //  }
-  },
-  components: {}
+    getBreadcrumb() {
+      let matched = this.$route.matched.filter(item => {
+        if (item.name) {
+          return true;
+        }
+      });
+      const first = matched[0];
+      if (first && first.name !== "dashboard") {
+        matched = [{ path: "/dashboard", meta: { title: "Dashboard" } }].concat(
+          matched
+        );
+      }
+      this.levelList = matched;
+    },
+    pathCompile(path) {
+      // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
+      const { params } = this.$route;
+      var toPath = pathToRegexp.compile(path);
+      return toPath(params);
+    },
+    handleLink(item) {
+      const { redirect, path } = item;
+      if (redirect) {
+        this.$router.push(redirect);
+        return;
+      }
+      this.$router.push(this.pathCompile(path));
+    }
+  }
 };
 </script>
 
-<style rel='stylesheet/scss' lang='scss' scoped>
-.app-breadcrumb {
+<style rel="stylesheet/scss" lang="scss" scoped>
+.app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
   line-height: 50px;
@@ -86,3 +74,4 @@ export default {
   }
 }
 </style>
+
