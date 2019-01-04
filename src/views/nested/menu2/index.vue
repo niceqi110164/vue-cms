@@ -1,6 +1,6 @@
 <template>
-  <div class="sideBar">
-    <h2>这是sideBar页面 ---{{msg}}</h2>
+  <div style="padding:30px;">
+    <el-alert :closable="false" title="menu 2"/>
   </div>
 </template>
 
@@ -8,14 +8,13 @@
 export default {
   props: {},
   data() {
-    return {
-      msg: "sideBar里面的data数据"
-    };
+    return {};
   },
   methods: {},
   components: {}
 };
 </script>
 
-<style scoped>
+<style rel='stylesheet/scss' lang='scss' scoped>
 </style>
+

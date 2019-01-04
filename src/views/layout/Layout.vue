@@ -1,35 +1,31 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    {{this.$store.state.app.device}}
-    <hr>
-    {{this.$store.state.app.sidebar}}
-    <hr>
-    {{classObj}}
-    <hr>
-    <!-- {{this.$router}} -->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
-    <!-- <sidebar class="sidebar-container"></sidebar> -->
+    <Sidebar class="sidebar-container"></Sidebar>
     <div class="main-container">
       <Navbar></Navbar>
+      {{this.$store.state.app.device}}
+      <hr>
+      {{this.$store.state.app.sidebar}}
+      <hr>
+      {{classObj}}
+      <hr>
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-// import { Navbar, Sidebar, AppMain, TagsView } from "./components";
-import Navbar from "./components/Navbar.vue";
+import { Navbar, Sidebar, AppMain } from "./components";
 //import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
   data() {
-    return {
-      msg: "layout页面的数据"
-    };
+    return {};
   },
   //mixins: [ResizeMixin],
   methods: {},
-  components: { Navbar },
+  components: { Navbar, Sidebar, AppMain },
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar;

@@ -22,6 +22,10 @@ import router from './router'
 
 import '@/permission'
 
+//svg-icon
+import './icons/index.js' // icon
+
+
 import './plugins/element.js'
 
 

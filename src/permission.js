@@ -25,23 +25,24 @@ router.beforeEach((to, from, next) => {
          if (store.getters.roles.length === 0) { //没有拉取user_info信息
             //异步去获取用户信息
             store.dispatch('GetUserInfo').then((response) => {
-               let roles = response.data.roles //['admin','edit']
-               //异步的去添加路由
-               store.dispatch('GenerateRoutes', {
-                  roles
-               }).then(() => {
-                  window.console.log(store.getters.addRouters)
+               next()
+               // let roles = response.data.roles //['admin','edit']
+               // //异步的去添加路由
+               // store.dispatch('GenerateRoutes', {
+               //    roles
+               // }).then(() => {
+               //    window.console.log(store.getters.addRouters)
 
-                  router.addRoutes(store.getters.addRouters) //动态添加可访问路由表
-                  next()
-               }).catch((err) => {
-                  store.dispatch('FedLogOut').then(() => {
-                     Message.error(err || 'Verification failed, please login again')
-                     next({
-                        path: '/'
-                     })
-                  })
-               })
+               //    router.addRoutes(store.getters.addRouters) //动态添加可访问路由表
+               //    next()
+               // }).catch((err) => {
+               //    store.dispatch('FedLogOut').then(() => {
+               //       Message.error(err || 'Verification failed, please login again')
+               //       next({
+               //          path: '/'
+               //       })
+               //    })
+               // })
             })
          } else { //已经拉取完user_info信息
             next()

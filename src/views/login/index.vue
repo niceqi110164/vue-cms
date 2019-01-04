@@ -17,11 +17,10 @@
         <!-- <lang-select class="set-language"/> -->
       </div>
 
-      <!-- 用户名    prop="username" 是我们要验证的地方-->
+      <!-- 用户名 prop="username" 是我们要验证的地方-->
       <el-form-item prop="username">
         <span class="svg-container">
-          <!-- <svg-icon icon-class="user"/> -->
-          <i class="el-icon-message"></i>
+          <svg-icon icon-class="user"/>
         </span>
         <el-input
           v-model="loginForm.username"
@@ -35,8 +34,7 @@
       <!-- 密码 -->
       <el-form-item prop="password">
         <span class="svg-container">
-          <!-- <svg-icon icon-class="user"/> -->
-          <i class="el-icon-message"></i>
+          <svg-icon icon-class="password"/>
         </span>
         <el-input
           v-model="loginForm.password"
@@ -46,7 +44,7 @@
           auto-complete="on"
         />
         <span class="show-pwd" @click="showPwd">
-          <i class="el-icon-message"></i>
+          <svg-icon icon-class="eye"/>
         </span>
       </el-form-item>
 
@@ -134,9 +132,9 @@ export default {
 
     //提交事件
     onSubmit(formName) {
-      //elementUI 表单验证方法  valid 返回 boolean 值
+      //$refs是vue中获取页面的,在html中要写 ref="form"
       this.$refs[formName].validate(valid => {
-        //window.console.log(valid);
+        //elementUI 表单验证方法  valid 返回 boolean 值
         if (!valid) {
           // 验证不通过禁止提交
           window.console.log("验证不通过");
@@ -254,17 +252,11 @@ $light_gray: #eee;
   }
 
   .svg-container {
-    padding: 0px 5px 0px 15px;
+    padding: 6px 5px 6px 15px;
     color: $dark_gray;
     vertical-align: middle;
     width: 30px;
-    height: 47px;
     display: inline-block;
-
-    i {
-      font-size: 20px;
-      line-height: 47px;
-    }
   }
 
   .title-container {
