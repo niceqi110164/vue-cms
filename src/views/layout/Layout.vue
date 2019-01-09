@@ -23,7 +23,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { Navbar, Sidebar, AppMain } from "./components";
+import { Navbar, Sidebar } from "./components";
 import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
@@ -36,7 +36,7 @@ export default {
       this.$store.dispatch("closeSideBar", { withoutAnimation: false });
     }
   },
-  components: { Navbar, Sidebar, AppMain },
+  components: { Navbar, Sidebar },
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar;

@@ -155,11 +155,7 @@ export const constantRouterMap = [{
       }]
    },
 
-   {
-      path: '*',
-      redirect: '/404',
-      hidden: true
-   }
+
 ]
 
 export default new VueRouter({
@@ -168,51 +164,57 @@ export default new VueRouter({
 })
 
 export const asyncRouterMap = [{
-   path: '/excel',
-   component: Layout,
-   redirect: '/excel/export-excel',
-   alwaysShow: true,
-   meta: {
-      title: '表格',
-      icon: 'edit'
-   },
-   children: [{
-         path: 'export-eccel',
-         name: '导出表格',
-         component: () => import('@/views/excel/export-excel.vue'),
-         meta: {
-            icon: "arrow-left",
-            title: "exportExcel"
-         }
-      },
-      {
-         path: 'upload-excel',
-         name: '上传表格',
-         component: () => import('@/views/excel/upload-excel.vue'),
-         meta: {
-            icon: 'minus',
-            title: 'uploadExcel'
-         }
-      }
-   ]
-}, {
-   path: '/clipboard',
-   component: Layout,
-   redirect: 'index',
-   meta: {
-      icon: 'document',
-      title: '剪切板'
-   },
-   children: [{
-      path: 'index',
-      name: 'clipBoard',
-      component: () => import('@/views/clipboard'),
+      path: '/excel',
+      component: Layout,
+      redirect: '/excel/export-excel',
+      alwaysShow: true,
       meta: {
-         title: '剪切板示例',
-         icon: 'document'
-      }
-   }]
-}]
+         title: '表格',
+         icon: 'edit'
+      },
+      children: [{
+            path: 'export-eccel',
+            name: '导出表格',
+            component: () => import('@/views/excel/export-excel.vue'),
+            meta: {
+               icon: "arrow-left",
+               title: "exportExcel"
+            }
+         },
+         {
+            path: 'upload-excel',
+            name: '上传表格',
+            component: () => import('@/views/excel/upload-excel.vue'),
+            meta: {
+               icon: 'minus',
+               title: 'uploadExcel'
+            }
+         }
+      ]
+   }, {
+      path: '/clipboard',
+      component: Layout,
+      redirect: 'index',
+      meta: {
+         icon: 'document',
+         title: '剪切板'
+      },
+      children: [{
+         path: 'index',
+         name: 'clipBoard',
+         component: () => import('@/views/clipboard'),
+         meta: {
+            title: '剪切板示例',
+            icon: 'document'
+         }
+      }]
+   },
+   {
+      path: '*',
+      redirect: '/404',
+      hidden: true
+   }
+]
 
 
 
