@@ -4,7 +4,7 @@ const {
   body
 } = document;
 const WIDTH = 1024;
-const RATIO = 3;
+const RATIO = 3; //比率
 
 export default {
   watch: {

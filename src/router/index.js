@@ -162,51 +162,59 @@ export const constantRouterMap = [{
    }
 ]
 
-
-// export const constantRouterMap = [{
-//       path: '/login',
-//       component: () => import('../views/login/index.vue'), //引入登录首页
-//       hidden: true
-//    },
-//    {
-//       path: '/',
-//       component: Layout,
-//       redirect: '/dashboard',
-//       name: 'Dashboard',
-//       hidden: true,
-//       children: [{
-//          path: 'dashboard',
-//          component: () => import('@/views/dashboard/index')
-//       }]
-//    },
-//    // {
-//    //    path: '/',
-//    //    component: Layout,
-//    //    redirect: '/dashboard',
-//    //    // name: 'Dashboard',
-//    //    hidden: true,
-//    //    children: [{
-//    //       path: 'dashboard',
-//    //       name: 'Dashboard',
-//    //       component: () => import('@/views/dashboard/index')
-//    //    }]
-//    // },
-//    {
-//       path: '/404',
-//       component: () => import('../views/errorPage/404'),
-//       hidden: true
-//    },
-//    {
-//       path: '/401',
-//       component: () => import('../views/errorPage/401'),
-//       hidden: true
-//    },
-// ]
-
 export default new VueRouter({
-   mode: 'history', //开启了history模式，去除了#，
+   //mode: 'history', //开启了history模式，去除了#，
    routes: constantRouterMap
 })
+
+export const asyncRouterMap = [{
+   path: '/excel',
+   component: Layout,
+   redirect: '/excel/export-excel',
+   alwaysShow: true,
+   meta: {
+      title: '表格',
+      icon: 'edit'
+   },
+   children: [{
+         path: 'export-eccel',
+         name: '导出表格',
+         component: () => import('@/views/excel/export-excel.vue'),
+         meta: {
+            icon: "arrow-left",
+            title: "exportExcel"
+         }
+      },
+      {
+         path: 'upload-excel',
+         name: '上传表格',
+         component: () => import('@/views/excel/upload-excel.vue'),
+         meta: {
+            icon: 'minus',
+            title: 'uploadExcel'
+         }
+      }
+   ]
+}, {
+   path: '/clipboard',
+   component: Layout,
+   redirect: 'index',
+   meta: {
+      icon: 'document',
+      title: '剪切板'
+   },
+   children: [{
+      path: 'index',
+      name: 'clipBoard',
+      component: () => import('@/views/clipboard'),
+      meta: {
+         title: '剪切板示例',
+         icon: 'document'
+      }
+   }]
+}]
+
+
 
 //异步挂载的路由
 //动态需要根据权限加载的路由表

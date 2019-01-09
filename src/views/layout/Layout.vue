@@ -1,15 +1,22 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
+  <div
+    :class="classObj"
+    class="app-wrapper"
+  >
+    <div
+      v-if="device==='mobile'&&sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
     <Sidebar class="sidebar-container"></Sidebar>
     <div class="main-container">
       <Navbar></Navbar>
       {{this.$store.state.app.device}}
-      <hr>
+      <!-- <hr>
       {{this.$store.state.app.sidebar}}
       <hr>
       {{classObj}}
-      <hr>
+      <hr> -->
       <router-view></router-view>
     </div>
   </div>
@@ -17,14 +24,18 @@
 
 <script type="text/ecmascript-6">
 import { Navbar, Sidebar, AppMain } from "./components";
-//import ResizeMixin from "./mixin/ResizeHandler";
+import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
   data() {
     return {};
   },
-  //mixins: [ResizeMixin],
-  methods: {},
+  mixins: [ResizeMixin],
+  methods: {
+    handleClickOutside() {
+      this.$store.dispatch("closeSideBar", { withoutAnimation: false });
+    }
+  },
   components: { Navbar, Sidebar, AppMain },
   computed: {
     sidebar() {

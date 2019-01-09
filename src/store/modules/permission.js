@@ -2,11 +2,27 @@ import {
    asyncRouterMap,
    constantRouterMap
 } from '../../router/index.js';
+
+
+/** 
+ * filterAsyncRouter 递归过滤异步路由表,返回符合用户角色权限的路由表
+ * @params: roles 过滤条件
+ * @params: routes 数组路由表
+ * @return: 返回符合条件的数组
+ * */
+function filterAsyncRouter(routes, roles) { //routesMap=>["/excel", "/clipboard"]
+   const permissionRouters = routes.filter(item => {
+      return roles.includes(item.path) //判断是否包含某一元素
+   })
+   return permissionRouters
+}
+
+
 /** 
  * permission judge function 许可判断函数
  * @params: roles
  * @params: route
- * */
+ * 
 function hasPermission(roles, route) {
    if (roles.indexOf('admin') >= 0) return true //admin permission passed directly admin直接通过
    if (route.meta && route.meta.roles) {
@@ -17,11 +33,10 @@ function hasPermission(roles, route) {
    }
 }
 
-/** 
  * filterAsyncRouter : 递归过滤异步路由表,返回符合用户角色权限的路由表
  * @params:routes(array) asyncRouterMap
  * @params:roles(obj)
- * */
+ * 
 function filterAsyncRouter(routes, roles) {
    const res = [];
    //遍历数组 操作数组的每一项
@@ -40,7 +55,7 @@ function filterAsyncRouter(routes, roles) {
    });
    return res
 }
-
+*/
 
 const permission = {
    state: {
@@ -53,26 +68,23 @@ const permission = {
          state.routers = constantRouterMap.concat(routers);
       }
    },
-   getters: {
-      addRouters: state => state.routers
-   },
    actions: {
       //GenerateRoutes 生成routers表
       GenerateRoutes({
          commit
       }, data) {
          return new Promise((resolve) => {
-            const {
-               roles
-            } = data;
-            let accessedRouters;
+            const roles = data; //判断条件
+            let accessedRouters = filterAsyncRouter(asyncRouterMap, roles);
+            //window.console.log(accessedRouters)
+            /**let accessedRouters;
             //检测数组是否包含 'admin'
             if (roles.includes('admin')) {
                accessedRouters = asyncRouterMap
             } else {
                accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
             }
-            /** accessedRouters 进入routers
+             accessedRouters 进入routers
             const accessedRouters = asyncRouterMap.filter(v => {
                if (roles.indexOf('admin') >= 0) return true; //当时admin登录时 直接返回true
                if (hasPermission(roles, v)) {
@@ -90,7 +102,6 @@ const permission = {
                }
                return false;
             });*/
-            window.console.log(accessedRouters);
             commit('SET_ROUTERS', accessedRouters);
             resolve()
          })

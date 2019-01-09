@@ -28,6 +28,7 @@ export default {
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
+      //window.console.log(this.$router.options.routes);
       return this.$router.options.routes;
     },
     isCollapse() {

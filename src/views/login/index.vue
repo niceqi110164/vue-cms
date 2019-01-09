@@ -20,7 +20,7 @@
       <!-- 用户名 prop="username" 是我们要验证的地方-->
       <el-form-item prop="username">
         <span class="svg-container">
-          <svg-icon icon-class="user"/>
+          <svg-icon icon-class="user" />
         </span>
         <el-input
           v-model="loginForm.username"
@@ -34,7 +34,7 @@
       <!-- 密码 -->
       <el-form-item prop="password">
         <span class="svg-container">
-          <svg-icon icon-class="password"/>
+          <svg-icon icon-class="password" />
         </span>
         <el-input
           v-model="loginForm.password"
@@ -43,16 +43,20 @@
           placeholder="输入密码"
           auto-complete="on"
         />
-        <span class="show-pwd" @click="showPwd">
-          <svg-icon icon-class="eye"/>
+        <span
+          class="show-pwd"
+          @click="showPwd"
+        >
+          <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
 
       <el-form-item>
         <el-button
           type="primary"
-          style="width:100%;margin-bottom:30px;"
+          style="width:100%;"
           @click="onSubmit('loginForm')"
+          class="light-blue-btn"
         >提交</el-button>
       </el-form-item>
     </el-form>
