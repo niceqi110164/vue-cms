@@ -10,7 +10,7 @@
       active-text-color="#409EFF"
     >
       <sidebar-item
-        v-for="route in routes"
+        v-for="route in routers"
         :key="route.path"
         :item="route"
         :base-path="route.path"
@@ -26,11 +26,11 @@ import SidebarItem from "./SidebarItem";
 export default {
   components: { SidebarItem },
   computed: {
-    ...mapGetters(["sidebar"]),
-    routes() {
-      window.console.log(this.$router.options.routes);
-      return this.$router.options.routes;
-    },
+    ...mapGetters(["sidebar", "routers"]), //直接中vuex中获取路由列表
+    // routes() {
+    //   window.console.log(this.routers);
+    //   return this.$router.options.routes;
+    // },
     isCollapse() {
       return !this.sidebar.opened;
     }

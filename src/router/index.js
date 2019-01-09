@@ -174,14 +174,14 @@ export const asyncRouterMap = [{
       alwaysShow: true,
       meta: {
          title: '表格',
-         icon: 'edit'
+         icon: 'shuru_icon'
       },
       children: [{
-            path: 'export-eccel',
+            path: 'export-excel',
             name: '导出表格',
             component: () => import('@/views/excel/export-excel.vue'),
             meta: {
-               icon: "arrow-left",
+               icon: "daochubiaoge",
                title: "exportExcel"
             }
          },
@@ -190,7 +190,7 @@ export const asyncRouterMap = [{
             name: '上传表格',
             component: () => import('@/views/excel/upload-excel.vue'),
             meta: {
-               icon: 'minus',
+               icon: 'shangchuan',
                title: 'uploadExcel'
             }
          }
@@ -209,7 +209,7 @@ export const asyncRouterMap = [{
          component: () => import('@/views/clipboard'),
          meta: {
             title: '剪切板示例',
-            icon: 'document'
+            icon: 'jiantiebanclipboard69'
          }
       }]
    },
