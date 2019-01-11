@@ -37,6 +37,7 @@ export default {
   methods: {
     //...mapActions(["add_visited_view", "del_visited_view"]),
     addTabView() {
+      window.console.log(this.$route);
       const { name } = this.$route;
       if (name) {
         //执行actions中的添加函数

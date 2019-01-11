@@ -22,11 +22,15 @@ export const constantRouterMap = [{
       path: '/',
       component: Layout,
       redirect: '/dashboard',
-      name: 'Dashboard',
-      hidden: true,
+      // hidden: true,
       children: [{
          path: 'dashboard',
-         component: () => import('@/views/dashboard/index.vue')
+         component: () => import('@/views/dashboard/index.vue'),
+         name: 'dashboard',
+         meta: {
+            title: 'Dashboard',
+            icon: 'example'
+         }
       }]
    },
 

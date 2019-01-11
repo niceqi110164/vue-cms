@@ -1,12 +1,22 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
+  <el-breadcrumb
+    class="app-breadcrumb"
+    separator="/"
+  >
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item,index) in levelList" v-if="item.meta.title" :key="item.path">
+      <el-breadcrumb-item
+        v-for="(item,index) in levelList"
+        v-if="item.meta.title"
+        :key="item.path"
+      >
         <span
           v-if="item.redirect==='noredirect'||index==levelList.length-1"
           class="no-redirect"
         >{{ item.meta.title }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <a
+          v-else
+          @click.prevent="handleLink(item)"
+        >{{ item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -31,11 +41,17 @@ export default {
   },
   methods: {
     getBreadcrumb() {
+      window.console.log(this.$route.matched);
+      //过滤数组把有名字的返回
       let matched = this.$route.matched.filter(item => {
         if (item.name) {
           return true;
         }
       });
+      //取出数组第一个元素
+      //判断第一个元素的名字 不是 dashboard 时
+      //让第一个元素拼接到当前数组的后面
+      //最后返回数组
       const first = matched[0];
       if (first && first.name !== "dashboard") {
         matched = [{ path: "/dashboard", meta: { title: "Dashboard" } }].concat(

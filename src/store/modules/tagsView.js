@@ -9,10 +9,13 @@ const tagsView = {
             return
          }
          state.visitedTabsView.push({
-            name: view.meta.title,
+            name: view.name,
             path: view.path
          })
       },
+      // ADD_CACHED_VIEW: (state, view) => {
+      //    if (state.cachedViews.includes(view.name)) {}
+      // },
       DEL_VISITED_VIEW: (state, view) => {
          for (let [i, v] of state.visitedTabsView.entries()) {
             if (v.path === view.path || v.name === view.name) {
