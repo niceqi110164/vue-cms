@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      window.console.log(this.$route.matched);
       //过滤数组把有名字的返回
       let matched = this.$route.matched.filter(item => {
         if (item.name) {
