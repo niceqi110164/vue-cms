@@ -31,8 +31,7 @@ export default {
   props: {},
   data() {
     return {
-      emptyGif:
-        "https://wpimg.wallstcn.com/0e03b7da-db9e-4819-ba10-9016ddfdaed3"
+      emptyGif: "https://github.com/niceqi110164/vue-cms"
     };
   },
   computed: {
