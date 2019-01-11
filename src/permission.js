@@ -37,7 +37,10 @@ router.beforeEach((to, from, next) => {
                store.dispatch('GenerateRoutes', roles).then(() => {
                   //window.console.log(store.getters.addRouters)
                   router.addRoutes(store.getters.addRouters) //动态添加可访问路由表
-                  next()
+                  next({
+                     ...to,
+                     replace: true
+                  })
                }).catch((err) => {
                   store.dispatch('FedLogOut').then(() => {
                      Message.error(err || 'Verification failed, please login again')

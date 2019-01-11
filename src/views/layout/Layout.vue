@@ -11,19 +11,21 @@
     <Sidebar class="sidebar-container"></Sidebar>
     <div class="main-container">
       <Navbar></Navbar>
-      {{this.$store.state.app.device}}
+      <TabsView></TabsView>
+      <AppMain></AppMain>
+      <!-- {{this.$store.state.app.device}} -->
       <!-- <hr>
       {{this.$store.state.app.sidebar}}
       <hr>
       {{classObj}}
       <hr> -->
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import { Navbar, Sidebar } from "./components";
+import { Navbar, Sidebar, AppMain, TabsView } from "./components";
 import ResizeMixin from "./mixin/ResizeHandler";
 export default {
   name: "Layout",
@@ -36,7 +38,7 @@ export default {
       this.$store.dispatch("closeSideBar", { withoutAnimation: false });
     }
   },
-  components: { Navbar, Sidebar },
+  components: { Navbar, Sidebar, AppMain, TabsView },
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar;

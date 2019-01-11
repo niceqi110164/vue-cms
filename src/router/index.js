@@ -136,6 +136,7 @@ export const constantRouterMap = [{
          {
             path: 'menu2',
             component: () => import('@/views/nested/menu2/index.vue'),
+            name: 'Menu2',
             meta: {
                title: 'menu2'
             }
@@ -154,11 +155,7 @@ export const constantRouterMap = [{
          }
       }]
    },
-   {
-      path: '*',
-      redirect: '/404',
-      hidden: true
-   }
+
 
 ]
 
@@ -213,7 +210,11 @@ export const asyncRouterMap = [{
          }
       }]
    },
-
+   {
+      path: '*',
+      redirect: '/404',
+      hidden: true
+   }
 ]
 
 
