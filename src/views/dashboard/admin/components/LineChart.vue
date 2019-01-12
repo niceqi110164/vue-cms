@@ -114,58 +114,74 @@ export default {
         document.getElementsByClassName("chart")[0], //DOM对象
         "macarons"
       );
-      //执行方法
+      //执行方法(传入数据)
       this.drawGraph(this.chartData);
     },
     // 绘图
     drawGraph({ expectedData, actualData } = {}) {
       this.chart.setOption({
+        /**标题 
+        title: {
+          text: "此处为标题",
+          subtext: "副标题",
+          x: "center"
+        },*/
+        //坐标系x轴
         xAxis: {
           data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-          boundaryGap: false,
+          boundaryGap: false, //数据是否贴在坐标轴两侧
           axisTick: {
+            //x轴是否显示刻度
             show: false
           }
         },
+        //直角坐标系内绘图网格
         grid: {
-          left: 10,
-          right: 10,
-          bottom: 20,
-          top: 30,
-          containLabel: true
+          left: 10, // 组件离容器左侧的距离。
+          right: 10, //组件离容器右侧的距离。
+          bottom: 20, //组件离容器下侧的距离。
+          top: 30, // 组件离容器上侧的距离。
+          containLabel: true //区域是否包含坐标轴的刻度标签。
         },
+        //提示框组件。
         tooltip: {
-          trigger: "axis",
+          trigger: "axis", //触发类型。 x轴
+          //坐标轴指示器配置项
           axisPointer: {
-            type: "cross"
+            type: "cross" //设置 tooltip.axisPointer.type 为 'cross' 时会自动显示 axisPointer 的 label。
           },
+          // 设置上下的内边距为 5，左右的内边距为 10
           padding: [5, 10]
         },
+        //坐标系y轴
         yAxis: {
+          //y轴是否显示刻度
           axisTick: {
             show: false
           }
         },
         legend: {
+          //图例的数据数组
           data: ["expected", "actual"]
         },
         series: [
           {
-            name: "expected",
+            name: "expected", //系列名称，用于tooltip的显示
             itemStyle: {
               normal: {
                 color: "#FF005A",
+                //线条样式。
                 lineStyle: {
                   color: "#FF005A",
                   width: 2
                 }
               }
             },
-            smooth: true,
-            type: "line",
-            data: expectedData,
-            animationDuration: 2800,
-            animationEasing: "cubicInOut"
+            smooth: true, //是否平滑曲线显示。
+            type: "line", //系列列表。每个系列通过 type 决定自己的图表类型
+            data: expectedData, //系列中的数据内容数组。数组项通常为具体的数据项。
+            animationDuration: 2800, //初始动画的时长，支持回调函数
+            animationEasing: "cubicInOut" //初始动画的缓动效果
           },
           {
             name: "actual",
@@ -178,6 +194,7 @@ export default {
                   color: "#3888fa",
                   width: 2
                 },
+                //区域填充样式。
                 areaStyle: {
                   color: "#f3f8ff"
                 }
