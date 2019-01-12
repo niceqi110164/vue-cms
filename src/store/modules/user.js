@@ -64,6 +64,7 @@ const user = {
                //登录成功后将token存储在cookie之中
                Cookies.set('Token', data.token)
                commit('SET_TOKEN', data.token)
+               commit('SET_NAME', data.name)
                setToken(data.token)
                //window.console.log(data)
                resolve(data)
