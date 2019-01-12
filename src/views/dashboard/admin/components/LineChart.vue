@@ -95,6 +95,7 @@ export default {
         "transitionend",
         this.sidebarResizeHandler
       );
+    //就是整个实例都不能用了，要用必须重新init
     this.chart.dispose();
     this.chart = null;
   },
