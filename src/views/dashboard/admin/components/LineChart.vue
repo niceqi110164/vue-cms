@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <h2>sss{{this.chartData}}</h2>
-    <div
-      :class="className"
-      :style="{height:height,width:width}"
-    >
-    </div>
+  <div
+    :class="className"
+    :style="{height:height,width:width}"
+  >
   </div>
-
 </template>
 
 <script>
@@ -110,9 +106,11 @@ export default {
     },
     //初始化echarts
     initChart() {
+      //window.console.log(this.$el);
       //传入 DOM
       this.chart = echarts.init(
-        document.getElementsByClassName("chart")[0], //DOM对象
+        //document.getElementsByClassName("chart")[0], //DOM对象
+        this.$el,
         "macarons"
       );
       //执行方法(传入数据)
