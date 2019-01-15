@@ -130,10 +130,11 @@ export default {
     position: absolute;
     transform-origin: 95% 40%;
     transition: all 0.3s ease-in-out;
-    &:after {
+    &::after {
       content: "";
       width: 8px;
       height: 8px;
+      display: block;
       position: absolute;
       border-radius: 50%;
       top: 40%;

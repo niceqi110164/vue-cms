@@ -55,6 +55,28 @@
       >
         <TransactionTable />
       </el-col>
+      <!-- todoList -->
+      <el-col
+        :xs="{span: 24}"
+        :sm="{span: 12}"
+        :md="{span: 12}"
+        :lg="{span: 6}"
+        :xl="{span: 6}"
+        style="margin-bottom:30px;"
+      >
+        <TodoList />
+      </el-col>
+      <!-- cardBox -->
+      <el-col
+        :xs="{span: 24}"
+        :sm="{span: 12}"
+        :md="{span: 12}"
+        :lg="{span: 6}"
+        :xl="{span: 6}"
+        style="margin-bottom:30px;"
+      >
+        <BoxCard />
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -67,6 +89,8 @@ import RaddarChart from "./components/RaddarChart.vue";
 import PieChart from "./components/PieChart.vue";
 import BarChart from "./components/BarChart.vue";
 import TransactionTable from "./components/TransactionTable.vue";
+import TodoList from "./components/TodoList";
+import BoxCard from "./components/BoxCard.vue";
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -95,7 +119,9 @@ export default {
     RaddarChart,
     PieChart,
     BarChart,
-    TransactionTable
+    TransactionTable,
+    TodoList,
+    BoxCard
   },
   data() {
     return {

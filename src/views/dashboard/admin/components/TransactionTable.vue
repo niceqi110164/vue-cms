@@ -2,7 +2,7 @@
   <el-table
     :data="list"
     style="width:100%;padding-top:15px;"
-    stripe
+    size="medium"
   >
     <el-table-column
       label="Order_No"
