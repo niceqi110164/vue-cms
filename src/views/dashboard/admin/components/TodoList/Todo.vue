@@ -34,9 +34,11 @@
 <script type="text/ecmascript-6">
 export default {
   name: "Todo",
+  //注册局部指令
   directives: {
     focus(el, { value }, { context }) {
       if (value) {
+        //在dom加载完成之后执行
         context.$nextTick(() => {
           el.focus();
         });

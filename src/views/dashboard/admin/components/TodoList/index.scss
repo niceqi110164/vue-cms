@@ -41,7 +41,7 @@
          color: #e6e6e6;
       }
 
-      input::-moz-placeholder {
+      input::-moz-input-placeholder {
          font-style: italic;
          font-weight: 300;
          color: #e6e6e6;
@@ -251,4 +251,62 @@
    // }
 
    // .todoapp {}
+
+   .footer {
+      color: #777;
+      position: relative;
+      padding: 10px 15px;
+      height: 40px;
+      text-align: center;
+      border-top: 1px solid #e6e6e6;
+
+      &:before {
+         content: '';
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         height: 40px;
+         overflow: hidden;
+         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+      }
+
+      .todo-count {
+         float: left;
+         text-align: center;
+
+         strong {
+            font-weight: 300;
+         }
+      }
+
+      .filters {
+         margin: 0;
+         padding: 0;
+         position: relative;
+         z-index: 1;
+         list-style: none;
+
+         li {
+            display: inline;
+
+            a {
+               color: inherit;
+               font-size: 12px;
+               padding: 3px 7px;
+               text-decoration: none;
+               border: 1px solid transparent;
+               border-radius: 3px;
+
+               &:hover {
+                  border-color: rgba(175, 47, 47, 0.1);
+               }
+
+               &:selected {
+                  border-color: rgba(175, 47, 47, 0.2);
+               }
+            }
+         }
+      }
+   }
 }
