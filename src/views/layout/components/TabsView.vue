@@ -78,6 +78,7 @@ export default {
   height: 40px;
   padding: 5px;
   border-bottom: 1px solid #dfdfdf;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   .tags-view-item {
     .el-tag {
       margin: 0 3px;

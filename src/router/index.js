@@ -180,7 +180,7 @@ export const asyncRouterMap = [{
       children: [{
             path: 'export-excel',
             name: '导出表格',
-            component: () => import('@/views/excel/export-excel.vue'),
+            component: () => import('@/views/excel/ExportExcel.vue'),
             meta: {
                icon: "daochubiaoge",
                title: "exportExcel"
