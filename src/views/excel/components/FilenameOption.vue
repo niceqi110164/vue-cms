@@ -1,7 +1,8 @@
 <template>
-  <div style="display:inline-block;">
+  <div class="filenameOption">
     <label class="radio-label">Filename: </label>
     <el-input
+      placeholder="$t('ecxel.placehlder')"
       v-model="filename"
       prefix-icon="el-icon-document"
       class="filename-input"
@@ -13,6 +14,7 @@
 export default {
   props: {
     value: {
+      //默认值
       type: String,
       default: ""
     }
@@ -21,6 +23,10 @@ export default {
     return {};
   },
   computed: {
+    /*
+    当filename不传值的时候是获取值
+    当filename(val)传值的时候是设置值 
+    */
     filename: {
       get() {
         return this.value;
@@ -36,10 +42,13 @@ export default {
 </script>
 
 <style rel='stylesheet/scss' lang='scss' scoped>
-.radio-label {
-  padding-left: 0;
-}
-.filename-input {
-  width: 340px;
+.filenameOption {
+  display: inline-block;
+  .radio-label {
+    padding-left: 0;
+  }
+  .filename-input {
+    width: 340px;
+  }
 }
 </style>

@@ -25,9 +25,7 @@ import '@/permission'
 //svg-icon
 import './icons/index.js' // icon
 
-
 import './plugins/element.js'
-
 
 Vue.config.productionTip = false
 
